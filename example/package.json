@@ -1,0 +1,23 @@
+{
+  "name": "ebs-fe-middle-example",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "react": "link:../node_modules/react",
+    "react-dom": "link:../node_modules/react-dom",
+    "react-scripts": "link:../node_modules/react-scripts",
+    "ebs-intl": "link:.."
+  },
+  "scripts": {
+    "serve:client": "node ../node_modules/react-scripts/bin/react-scripts.js start"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
