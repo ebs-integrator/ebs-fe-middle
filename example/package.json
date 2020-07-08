@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "ebs-intl": "link:..",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
-    "react-scripts": "link:../node_modules/react-scripts",
-    "ebs-intl": "link:.."
+    "react-scripts": "link:../node_modules/react-scripts"
   },
   "scripts": {
     "serve:client": "node ../node_modules/react-scripts/bin/react-scripts.js start"
