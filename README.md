@@ -1,19 +1,38 @@
 # Middle Javascript Developer (React)
 
-It's necessary to create React JS plugin, using only [Typescript](https://www.typescriptlang.org/) and [React Context](https://reactjs.org/docs/context.html), that will return copies in certain language.
+You should create React JS plugin, using only [Typescript](https://www.typescriptlang.org/) and [React Context](https://reactjs.org/docs/context.html), that will return copies in certain language.
 
 Keep away from unnecessary dependecies, keep it simple.
 
 ## Getting started
 
-1. Start plugin using `yarn serve:start`
-2. Start client for example from **example** folder using `yarn serve:client`
+1. Install deps using `yarn` and start plugin using `yarn serve:start`
+2. Move in example folder, Install deps using `yarn` and start client using `yarn serve:client`
+
+Imagine, that your application should work in different languages, that will mean that every text should have variant for every language.
+
+## Necessary interfaces
+```tsx
+interface Translate {
+   [translationKey: string]: {
+      [language: string]: string
+   }
+}
+
+type Locale = 'ro' | 'en' | 'ru'
+
+interface TranslateUtils {
+   lang: Locale
+   t: (key: string, params?: { [key: string]: string }) => string
+}
+```
 
 ## Todo:
-
-1. Get list of copies (translates) passed through props and save them in context.
-2. Add possibility to change current language.
-3. Add possibility to find out current language.
-4. Add possibility to get translate for current language using keyword of copy (translate).
-5. Add possibility to use templates
-   For example 'Hello, {name}' copy will return 'Hello, ...' and text that will be passed using arguments.
+1. Create root component, that will expect **Translate** and **Locale**
+   - add verification if in **Translate** every translation has translation variant for every language.
+2. Root component should save **Translate** and **Locale** in [React Context](https://reactjs.org/docs/context.html)
+3. Create HOOK that will return **TranslateUtils**
+   - where lang will be current **language** and **t** will be function that recieve key of translate and returns text in necessary language.
+4. Add possibility to use templates in **t**
+   - One of example that you'll should do is 
+   'Hello, {name}. How did you sleep, {name}?' that will replaced automatically with 'Hello, ... How did you sleep, ...' (the '...' will be text that you passed in **t**)
