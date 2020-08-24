@@ -1,0 +1,12 @@
+{
+  "greet": {
+    "en": "Hello world!",
+    "ru": "Привет!",
+    "ro": "Salut!"
+  },
+  "bye": {
+    "en": "Bye!",
+    "ru": "Пока!",
+    "ro": "Pa!"
+  }
+}
