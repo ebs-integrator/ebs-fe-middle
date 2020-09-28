@@ -1,11 +1,23 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { useIntl } from 'ebs-intl';
+import { IntlProvider, useIntl } from 'ebs-intl';
 
 const App = () => {
-  const t = useIntl();
+  const { t, lang } = useIntl();
 
-  return <div>{t('greeting')}</div>;
+  console.log(lang);
+  return <div>{t('greeting', { name: 'EBS' })}</div>;
 };
 
-render(<App />, document.getElementById('root'));
+const translate = {
+  greeting: {
+    en: 'Hello, {name}!',
+  },
+};
+
+render(
+  <IntlProvider translate={translate} locale="en">
+    <App />
+  </IntlProvider>,
+  document.getElementById('root'),
+);
