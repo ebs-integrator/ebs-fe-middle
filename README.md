@@ -13,13 +13,13 @@ Imagine, that your application should work in different languages, that will mea
 
 ## Necessary interfaces
 ```tsx
+type Locale = string;
+
 interface Translate {
    [translationKey: string]: {
-      [language: string]: string
+      [language: Locale]: string
    }
 }
-
-type Locale = 'ro' | 'en' | 'ru'
 
 interface TranslateUtils {
    lang: Locale
